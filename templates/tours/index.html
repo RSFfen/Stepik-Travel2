@@ -1,0 +1,34 @@
+{% extends 'tours/base.html' %}
+
+{% block content %}
+
+    <!-- HERO -->
+
+    <div class="jumbotron text-center mt-4">
+      <h1 class="display-4">Всякие туры</h1>
+      <p class="lead">{{ subtitle }}</p>
+      <p class="mt-5 w-50 mx-auto">{{ description }}</p>
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="row mt-5" data-test="cards">
+
+        {% for tour_key, tour_value in tours.items %}
+            {% if forloop.counter0 < 6 %}
+        <div class="col-4" data-test="card">
+            <div class="card mb-3" >
+            <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" data-test="picture">
+            <div class="card-body">
+              <h5 class="card-title">{{ tour_value.title }}</h5>
+             <p class="card-text">{{ tour_value.description }}</p>
+                <a class="btn btn-sm btn-primary" data-test="tourlink" href="{% url 'tour' tour_key %}">Подробнее</a>
+            </div>
+        </div>
+        </div>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}

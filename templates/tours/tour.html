@@ -1,0 +1,20 @@
+{% extends 'tours/base.html' %}
+
+{% block content %}
+
+
+    <h1 class="display-3 mt-4" data-test="title">{{ cur_tour.title }}</h1>
+
+    <!-- HERO -->
+
+    <p class="lead" data-test="lead"> <span data-text="departure">{{ cur_tour.country }} {{ departure_name }}</span>
+    <span data-text="nights">{{ cur_tour.nights }}</span> ночей</p>
+
+    <img data-test="picture" src="{{ cur_tour.picture }}" class="w-75" alt="">
+    
+    <p class="my-4 w-75" data-test="description">{{ cur_tour.description }}</p>
+
+    <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span data-test="price">{{ cur_tour.price }}</span></a>
+
+{% endblock content %}
+
